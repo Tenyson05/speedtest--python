@@ -18,8 +18,8 @@ def read_data():
 	)
 
 	print(df)
-	# return the data
-	return df[-10:]
+	# return the data from the last one in the log file
+	return df[-48:]
 
 def make_plot_file(last_24, file_plot_name):
 	'''
