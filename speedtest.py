@@ -25,6 +25,7 @@ def get_speedtest_results():
 	upload = None
 
 	with os.popen("speedtest-cli  --simple") as spedtest_output:
+		print("Starting speed test...")
 		for line in spedtest_output:
 			label, value, unit = line.split()
 			if 'Ping' in label:
@@ -35,6 +36,7 @@ def get_speedtest_results():
 				upload = float(value)
 
 	if all((ping, download, upload)):
+		print("Speed test completed")
 		return ping, download, upload
 	else:
 		raise ValueError('TEST FAILED')
@@ -48,3 +50,7 @@ def main():
 		logging.info(err)
 	else:
 		logging.info("%5.1f %5.1f %5.1f", ping, download, upload)
+
+
+if __name__ == '__main__':
+	main()
