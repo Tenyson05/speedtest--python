@@ -27,6 +27,7 @@ def make_plot_file(last_24, file_plot_name):
 		Title of the axis and graph as well as the scaling of each axis
 	'''
 	rcParams['xtick.labelsize'] = 'xx-small'
+	rcParams['ytick.labelsize'] = '5'
 
 	# Getting the last 24 hour of timestamp and download speed
 	plt.plot(last_24['timestamp'],last_24['download'], 'b-')
@@ -34,12 +35,14 @@ def make_plot_file(last_24, file_plot_name):
 	plt.title('Bandwith Report (last 24 hours)')
 	# Bandwidth in 
 	plt.ylabel('Bandwith in Mbps')
-	plt.yticks(xrange(0,100))
-	plt.ylim(1.0,99.9)
+	plt.yticks(xrange(0,52))
+	plt.ylim(1,50)
 
 
 	plt.xlabel('Date/Time')
 	plt.xticks(rotation='45')
+	# plt.yticks(rotation='30')
+	# plt.yticks(width='5')
 
 	plt.grid
 
