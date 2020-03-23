@@ -1,5 +1,6 @@
 import os
 import logging
+import time
 
 LOG_FILE = "speedtest.log"
 
@@ -53,4 +54,6 @@ def main():
 
 
 if __name__ == '__main__':
-	main()
+	while True:
+		main()
+		time.sleep(3600)
